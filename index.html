@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grass Roots Cyber Club Chat</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <script src="https://chitchatter.im/sdk.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0d0d0d;
+      font-family: 'Courier New', monospace;
+      color: #00ffcc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 1rem 0 0.25rem;
+      font-size: 2rem;
+      color: #00ffcc;
+    }
+
+    #topics {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 1rem;
+      animation: fadein 1s ease-in-out;
+    }
+
+    chat-room {
+      border: 2px solid #00ffcc;
+      border-radius: 10px;
+    }
+
+    footer {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+  <script>
+    const topics = [
+      "🔥 How do I break into cybersecurity?",
+      "🛡️ What’s a practical home lab setup?",
+      "💼 Is the cert grind worth it?",
+      "📚 Tools for teaching cyber in K-12?",
+      "🧠 How can small towns stay secure?"
+    ];
+    let current = 0;
+
+    function rotateTopics() {
+      document.getElementById('topics').textContent = topics[current];
+      current = (current + 1) % topics.length;
+    }
+
+    window.onload = () => {
+      rotateTopics();
+      setInterval(rotateTopics, 6000);
+    };
+  </script>
+</head>
+<body>
+  <h1>💬 Grass Roots Cyber Chat Club</h1>
+  <div id="topics">Welcome to the club.</div>
+  <chat-room width="800" height="800" room="GrassRootsCyber"></chat-room>
+  <footer>Powered by <a href="https://chitchatter.im" style="color:#00ffcc;">Chitchatter</a> · Privacy-friendly analytics by GoatCounter</footer>
+  <script data-goatcounter="https://grassrootscyber.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
